@@ -3,7 +3,6 @@
 import io
 from flask import Flask, render_template, request, send_file
 from docx import Document
-from docx.shared import Inches
 
 # --- 1. FLASK APPLICATION SETUP ---
 app = Flask(__name__)
