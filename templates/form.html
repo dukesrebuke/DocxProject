@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children's Book Illustration Agreement Generator</title>
+    <style>
+        /* Simple CSS for better readability - not strictly required for functionality */
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; }
+        h1 { color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"], input[type="date"], input[type="number"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .section-header {
+            background-color: #e9ecef;
+            padding: 5px;
+            border-left: 5px solid #007bff;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Children's Book Illustration Agreement Generator</h1>
+    <p>Please fill out the details below to generate your custom **Work-For-Hire** illustration agreement (Governed by Indiana Law).</p>
+
+    <form method="POST" action="/generate">
+
+        <div class="section-header"><h2>Parties & Book Details</h2></div>
+        
+        <label for="effective_date">Effective Date:</label>
+        <input type="date" id="effective_date" name="effective_date" required>
+        
+        <label for="book_title">Book Title:</label>
+        <input type="text" id="book_title" name="book_title" placeholder="e.g., The Adventures of Sammy the Squirrel" required>
+        
+        <label for="governing_law">Governing Law (State):</label>
+        <input type="text" id="governing_law" name="governing_law" value="Indiana" required>
+        
+        <br>
+        <div class="section-header"><h2>Author/Creator Details</h2></div>
+        
+        <label for="author_name">Author/Creator Name (Your Name):</label>
+        <input type="text" id="author_name" name="author_name" required>
+
+        <label for="author_city_state">Author City, State (Residing In):</label>
+        <input type="text" id="author_city_state" name="author_city_state" placeholder="e.g., Indianapolis, Indiana" required>
+
+        <br>
+        <div class="section-header"><h2>Illustrator (Minor) Details</h2></div>
+
+        <label for="illustrator_name">Illustrator's Name (Child's Name):</label>
+        <input type="text" id="illustrator_name" name="illustrator_name" required>
+        
+        <label for="guardian_name">Parent/Legal Guardian Name:</label>
+        <input type="text" id="guardian_name" name="guardian_name" required>
+
+        <label for="guardian_city_state">Guardian City, State (Residing In):</label>
+        <input type="text" id="guardian_city_state" name="guardian_city_state" placeholder="e.g., Carmel, Indiana" required>
+
+        <div class="section-header"><h2>Scope of Work & Compensation</h2></div>
+        
+        <label for="deliverables">Artwork Deliverables (e.g., 1 Cover, 10 Page Spreads, 3 Character Designs):</label>
+        <textarea id="deliverables" name="deliverables" rows="3" required></textarea>
+
+        <label for="total_compensation">Total Compensation ($USD):</label>
+        <input type="number" id="total_compensation" name="total_compensation" placeholder="e.g., 50.00" step="0.01" required>
+
+        <label for="file_format">Required File Format:</label>
+        <input type="text" id="file_format" name="file_format" value="PNG and Print-Ready PDF" required>
+
+        <label for="deadline">Final Delivery Deadline:</label>
+        <input type="date" id="deadline" name="deadline" required>
+
+        <input type="submit" value="Generate and Download Agreement">
+    </form>
+</body>
+</html>
